@@ -1,0 +1,218 @@
+:host {
+  --primary-color: #5b50e3; 
+  --primary-hover: #4a40c0;
+  --text-color: #2c3e50;
+  --text-muted: #6c757d;
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-color: #e9ecef;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: block;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.payment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.card-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background-color: var(--primary-color);
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.plan-name {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.renewal-info {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.benefits-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.half-width {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: border-color 0.2s;
+  box-sizing: border-box; 
+
+input[type="text"]:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* Summary Card */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed var(--border-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.total-amount {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.payable-card {
+  text-align: center;
+  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+}
+
+.payable-title {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.final-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pay-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.security-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.security-note::before {
+  content: '🔒';
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .page-title {
+    font-size: 1.5rem;
+  }
+}
+}

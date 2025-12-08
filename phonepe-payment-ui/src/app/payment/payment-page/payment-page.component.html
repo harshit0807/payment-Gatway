@@ -1,0 +1,137 @@
+<div class="payment-container">
+  <h1 class="page-title">Manage Your Subscription & Billing</h1>
+
+  <div class="content-grid">
+    <div class="left-column">
+
+      <!-- Current Plan -->
+      <section class="card plan-card">
+        <h2 class="card-title">Your Current Plan</h2>
+        <h3 class="plan-name">{{ planDetails.name }}</h3>
+        <p class="renewal-info">
+          Renews on: <strong>{{ planDetails.renewalDate }}</strong>
+        </p>
+        <p class="benefits-label">Included Benefits:</p>
+        <ul class="benefits-list">
+          <li *ngFor="let benefit of planDetails.benefits">✓ {{ benefit }}</li>
+        </ul>
+      </section>
+
+      <!-- Billing Form -->
+      <section class="card billing-card">
+        <h2 class="card-title">Billing Information</h2>
+
+        <!-- FORM START -->
+        <form [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <label for="fullName">Full Name / Company Name</label>
+            <input type="text" id="fullName" formControlName="fullName"
+                   placeholder="John Doe or Acme Corp">
+          </div>
+
+          <div class="form-group">
+            <label for="addressLine1">Address Line 1</label>
+            <input type="text" id="addressLine1" formControlName="addressLine1"
+                   placeholder="Flat/House No., Building Name">
+          </div>
+
+          <div class="form-group">
+            <label for="addressLine2">Address Line 2 (Optional)</label>
+            <input type="text" id="addressLine2" formControlName="addressLine2"
+                   placeholder="Street/Area/Locality">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half-width">
+              <label for="city">City</label>
+              <input type="text" id="city" formControlName="city">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="state">State / Province</label>
+              <input type="text" id="state" formControlName="state">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half-width">
+              <label for="zipCode">ZIP / Postal Code</label>
+              <input type="text" id="zipCode" formControlName="zipCode">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="country">Country</label>
+              <select id="country" formControlName="country">
+                <option value="India">India</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gstNumber">GST Identification Number (Optional)</label>
+            <input type="text" id="gstNumber" 
+                   formControlName="gstNumber"
+                   placeholder="e.g., 22AAAAA0000A1Z5">
+          </div>
+
+          <p class="form-note">
+            Ensure your address is correct for tax and invoice generation.
+          </p>
+
+        </form>
+        <!-- FORM END -->
+
+      </section>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-column">
+
+      <!-- Summary Card -->
+      <section class="card summary-card">
+        <h2 class="card-title">Order Summary</h2>
+
+        <div class="summary-item">
+          <span>{{ planDetails.name }}</span>
+          <span>${{ orderSummary.subtotal | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-item">
+          <span>CGST (9%)</span>
+          <span>${{ orderSummary.cgst | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-item">
+          <span>SGST (9%)</span>
+          <span>${{ orderSummary.sgst | number:'1.2-2' }}</span>
+        </div>
+
+        <div class="summary-total">
+          <span>TOTAL INCLUSIVE OF TAX</span>
+          <span class="total-amount">${{ orderSummary.total | number:'1.2-2' }}</span>
+        </div>
+      </section>
+
+      <!-- Pay Now Card -->
+      <section class="card payable-card">
+        <h3 class="payable-title">PAYABLE AMOUNT</h3>
+
+        <div class="final-amount">
+          ${{ orderSummary.total | number:'1.2-2' }}
+        </div>
+
+        <!-- UPDATED BUTTON -->
+        <button 
+        type="button" 
+        class="pay-button" 
+        (click)="onSubmit()">
+        Proceed to Pay
+      </button>
+
+        <p class="security-note">Securely processed via Payment Gateway</p>
+      </section>
+
+    </div>
+  </div>
+</div>

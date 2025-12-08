@@ -1,0 +1,29 @@
+{
+  "name": "interview-insight-api",
+  "version": "1.0.0",
+  "description": "API backend for Interview Insight dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@angular/common": "^19.2.17",
+    "@angular/core": "^19.2.17",
+    "@angular/forms": "^19.2.17",
+    "autoprefixer": "^10.4.22",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.16.4",
+    "pg-sdk-node": "https://phonepe.mycloudrepo.io/public/repositories/phonepe-pg-sdk-node/releases/v2/phonepe-pg-sdk-node.tgz",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
