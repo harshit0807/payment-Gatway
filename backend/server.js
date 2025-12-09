@@ -7,27 +7,13 @@ const cors = require('cors');
 
 const adminRoutes = require('./routes/adminRoutes.js');
 
-// const dashboardRoutes = require('./routes/dashboardRoutes');
-// const jobRoutes = require('./routes/jobRoutes');
-// const companyRoutes = require('./routes/companyRoutes');
-// const contactusRoutes  = require('./routes/contactusRoutes');
-// const updatestatusRoutes = require('./routes/updatestatusRoutes');
-// const skillsRoutes = require('./routes/skillsRoutes'); 
-// const addskillRoutes = require('./routes/addskillRoutes'); 
-// const updateSkillRoutes = require('./routes/updateskillRoutes'); 
-// const supportRoutes = require('./routes/supportRoutes');
-// const supportStatusRoutes = require("./routes/supportStatusRoutes");
-// const teamRoutes = require('./routes/teamRoutes');
-// const varifyRoutes = require('./routes/varifyRoutes');
-// const companyDetailsRoutes = require("./routes/companyDetailsRoutes");
-// const candidateRoutes = require("./routes/CandidateRoutes");
 
 
 
 const app = express();
 
 
-// Middleware
+// 
 app.use(cors({
   // origin: "http://localhost:8080",
   origin: "*",

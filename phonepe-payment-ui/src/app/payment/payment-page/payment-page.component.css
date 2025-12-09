@@ -154,7 +154,10 @@ input[type="text"]:focus, select:focus {
 
 .payable-card {
   text-align: center;
-  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
 }
 
 .payable-title {
@@ -172,21 +175,30 @@ input[type="text"]:focus, select:focus {
   margin-bottom: 1.5rem;
 }
 
-.pay-button {
+.pay-button-large {
   width: 100%;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  color: white;
+  background: #1976ff;          /* deep blue */
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1.1rem 0;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(25, 118, 255, 0.4);
+  letter-spacing: 0.4px;
 }
 
-.pay-button:hover {
-  background-color: var(--primary-hover);
+.pay-button-large:hover {
+  background: #0f5ae0;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(25, 118, 255, 0.5);
+}
+
+.pay-button-large:active {
+  transform: scale(0.98);
 }
 
 .security-note {
@@ -202,6 +214,57 @@ input[type="text"]:focus, select:focus {
   content: '🔒';
   margin-right: 8px;
 }
+/* ✅ FINAL BIG PAY BUTTON STYLE */
+.pay-button-large {
+  width: 100% !important;
+  background: #1976ff !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  padding: 18px 0 !important;
+  border-radius: 12px !important;
+  border: none !important;
+  cursor: pointer !important;
+  margin-top: 12px !important;
+  box-shadow: 0 10px 25px rgba(25, 118, 255, 0.45) !important;
+  transition: all 0.25s ease;
+}
+
+.pay-button-large:hover {
+  background: #0f5ae0 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(25, 118, 255, 0.5) !important;
+}
+
+.pay-button-large:active {
+  transform: scale(0.98);
+}
+/* ✅ FINAL BIG PAY BUTTON STYLE */
+.pay-button-large {
+  width: 100% !important;
+  background: #1976ff !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  padding: 18px 0 !important;
+  border-radius: 12px !important;
+  border: none !important;
+  cursor: pointer !important;
+  margin-top: 12px !important;
+  box-shadow: 0 10px 25px rgba(25, 118, 255, 0.45) !important;
+  transition: all 0.25s ease;
+}
+
+.pay-button-large:hover {
+  background: #0f5ae0 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(25, 118, 255, 0.5) !important;
+}
+
+.pay-button-large:active {
+  transform: scale(0.98);
+}
+
 
 @media (max-width: 768px) {
   .content-grid {

@@ -7,7 +7,7 @@ exports.createPayment = async (req, res) => {
         const { amount, merchantUserId } = req.body;
 
         const merchantOrderId = randomUUID(); 
-        const redirectUrl = "http://localhost:4200/payment-failed"; 
+        const redirectUrl =`http://localhost:5000/api/admin/phonepe/redirect?merchantOrderId=${merchantOrderId}`;
 
         const metaInfo = MetaInfo.builder()
             .udf1(merchantUserId)
@@ -25,7 +25,7 @@ exports.createPayment = async (req, res) => {
         res.json({
             success: true,
             checkoutPageUrl: response.redirectUrl,
-            orderId: response.orderId,
+            merchantOrderId: merchantOrderId,
         });
 
     } catch (err) {
