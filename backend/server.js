@@ -1,7 +1,7 @@
 
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, ".env") }); 
-
+const connectDB = require("./db");
 const express = require('express');
 const cors = require('cors');
 
@@ -13,6 +13,7 @@ const adminRoutes = require('./routes/adminRoutes.js');
 const app = express();
 
 
+
 // 
 app.use(cors({
   // origin: "http://localhost:8080",
@@ -21,7 +22,7 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
-
+connectDB();
 // Routes
 app.use('/api/admin', adminRoutes); 
 

@@ -1,4 +1,5 @@
 const client = require('../../initClient');
+const Payment = require('../../models/payment');
 
 async function phonepeRedirect(req, res) {
   try {
@@ -14,6 +15,28 @@ async function phonepeRedirect(req, res) {
 
     console.log("Payment State:", state);
 
+    const providerReferenceId = statusResponse.data?.providerReferenceId || null;
+    const transactionId = statusResponse.data?.transactionId || null;
+    const paymentInstrument = statusResponse.data?.paymentInstrument || null;
+
+    let finalStatus = "PENDING";
+    if (state === "COMPLETED" || state === "SUCCESS") finalStatus = "SUCCESS";
+    if (state === "FAILED") finalStatus = "FAILED";
+
+    await Payment.findOneAndUpdate(
+      { merchantOrderId },
+      {
+        statusCode: finalStatus,
+        transactionId,
+        providerReferenceId,
+        paymentMethod: paymentInstrument?.type || null,
+        paymentResponse: statusResponse,
+        verifyStatus: true,
+        statusMessage: `PhonePe returned state: ${state}`
+      },
+      { new: true }
+    );
+
     if (state === "COMPLETED" || state === "SUCCESS") {
       return res.redirect("http://localhost:4200/payment-success");
     }
@@ -26,6 +49,16 @@ async function phonepeRedirect(req, res) {
 
   } catch (err) {
     console.error("Redirect Error:", err);
+
+    await Payment.findOneAndUpdate(
+      { merchantOrderId: req.query.merchantOrderId },
+      {
+        statusCode: "FAILED",
+        failureReason: err.message,
+        verifyStatus: true
+      }
+    );
+
     return res.redirect("http://localhost:4200/payment-failed");
   }
 }
